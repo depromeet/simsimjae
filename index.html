@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>리액트 코어 클론 테스트</title>
-</head>
+  </head>
 
-<body>
-    hello, world!
-    <script src='./ReactElement.js'></script>
-    <script type="text/javascript">
-        __DEV__ = true;
-        window.onload = function () {
-            console.log(createElement('div', { className: 'test' }, 'hello, world!!'))
-        }
-    </script>
-</body>
+  <body>
+    <div id="root"></div>
 
+    <script src="./index.js"></script>
+  </body>
 </html>

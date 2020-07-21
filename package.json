@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "http-server": "^0.12.3",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=development http-server"
+  },
+  "name": "depromeet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/depromeet/simsimjae.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/depromeet/simsimjae/issues"
+  },
+  "homepage": "https://github.com/depromeet/simsimjae#readme",
+  "description": ""
+}
