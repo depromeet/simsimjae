@@ -17,3 +17,7 @@ ReactDOM 패키지의 render메소드로 직접 만든 createElement 함수로 �
 ### 사전지식: React의 Reconciliation (재조정)
 
 
+
+### 참고자료
+
+https://velog.io/@godori/build-your-own-react#step-i-createelement-%ED%95%A8%EC%88%98
