@@ -36,7 +36,12 @@ const ReactDOM = {
       return;
     }
 
-    validateHTMLTag(element.type);
+    try {
+      validateHTMLTag(element.type);
+    } catch (e) {
+      console.error(e.message);
+    }
+
     element.props.children = toArray(element.props.children);
 
     const subContainer = document.createElement(element.type); // <div></div>
