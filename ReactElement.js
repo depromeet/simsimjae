@@ -1,3 +1,4 @@
+const __DEV__ = true;
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 const RESERVED_PROPS = {
   key: true,
@@ -32,6 +33,34 @@ function ReactElement(type, key, ref, self, source, owner, props) {
   return element;
 }
 
+function hasValidRef(config) {
+  if (__DEV__) {
+    if (hasOwnProperty.call(config, "ref")) {
+      const getter = Object.getOwnPropertyDescriptor(config, "ref").get;
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+  return config.ref !== undefined;
+}
+
+function hasValidKey(config) {
+  if (__DEV__) {
+    if (hasOwnProperty.call(config, "key")) {
+      const getter = Object.getOwnPropertyDescriptor(config, "key").get;
+      // config 내부에는 key라는 property가 들어있다.
+      // 이 key라는 property는 propertyDescriptor에 getter 함수를 갖고 있는데,
+      // 이 getter에 isReactWarning이라고 하는 boolean변수가 true가 되어있는 경우엔 (리액트 라이브러리의 다른 어떤 부분에서 조건에 따라 참/거짓이 세팅될듯)
+      // 유효하지 않은 키로 판단한다.
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+  return config.key !== undefined;
+}
+
 export function createElement(type, config, children) {
   let propName;
 
@@ -47,6 +76,13 @@ export function createElement(type, config, children) {
 
   // 1. props 정규화
   if (config != null) {
+    if (hasValidKey(config)) {
+      key = "" + config.key;
+    }
+
+    if (hasValidRef(config)) {
+      ref = config.ref;
+    }
     // self = config.__self === undefined ? null : config.__self;
     // source = config.__source === undefined ? null : config.__source;
 

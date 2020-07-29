@@ -1,6 +1,5 @@
 import { createElement } from "./ReactElement.js";
-import ReactDOM from "react-dom";
-
+import ReactDOM from "./ReactDOM.js";
 // const Component = () => {
 //   return <span className="2depth">hello, depromeet!</span>;
 // };
@@ -22,7 +21,7 @@ const Component = () => {
     {
       className: "2depth",
     },
-    "hello, depromeet!"
+    createElement("TEXT_ELEMENT", null, "hello, depromeet!")
   );
 };
 
@@ -40,11 +39,8 @@ const Depromeet = () => {
     ),
     createElement(
       "p",
-      {
-        key: 2,
-        className: "1depth",
-      },
-      "this is children"
+      { key: 2, className: "1depth" },
+      createElement("TEXT_ELEMENT", null, "this is children")
     )
   );
 };
