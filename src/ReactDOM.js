@@ -4,7 +4,7 @@ const isFuntionalElement = (element) => typeof element.type === "function";
 const isTextElement = (element) => element.type === "TEXT_ELEMENT";
 
 const toArray = (arg) => {
-  if (!Array.isArray(arg)) return (arg = [arg]);
+  if (!Array.isArray(arg) && arg) return (arg = [arg]);
   else return arg;
 };
 
@@ -42,16 +42,20 @@ const ReactDOM = {
       console.error(e.message);
     }
 
-    element.props.children = toArray(element.props.children);
-
     const subContainer = document.createElement(element.type); // <div></div>
+    for (const propName in element.props) {
+      if (propName !== "children") {
+        subContainer[propName] = element.props[propName];
+      }
+    }
     container.appendChild(subContainer);
 
-    if (element.props.children && Array.isArray(element.props.children)) {
-      element.props.children.map((child) => {
-        ReactDOM.render(child, subContainer);
+    const childs = toArray(element.props.children);
+    if (childs) {
+      childs.map((child) => {
+        if (typeof child === "function") ReactDOM.render(child(), subContainer);
+        else ReactDOM.render(child, subContainer);
       });
-      return;
     }
   },
 };
