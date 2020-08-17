@@ -1,32 +1,47 @@
 import { createElement } from "./ReactElement.js";
 import ReactDOM from "./ReactDOM.js";
 
-const firstChildComponent = () => {
-  return createElement(
-    "div",
-    { className: "first-child" },
-    createElement("TEXT_ELEMENT", null, "첫번째 자식")
-  );
+const virtualDOM = {
+  type: "div",
+  props: {
+    id: "id1",
+    className: "abc",
+    children: {
+      type: "div",
+      props: {
+        className: "child",
+        onClick: () => {
+          ReactDOM.render(anotherVirtualDOM, document.getElementById("root"));
+        },
+        children: {
+          type: "TEXT_ELEMENT",
+          props: {
+            children: "첫번째 virtualDOM, 이 텍스트를 클릭시 state가 변경되어 리렌더링이 일어난다고 가정합니다.",
+          },
+        },
+      },
+    },
+  },
 };
 
-const secondChildComponent = () => {
-  return createElement(
-    "div",
-    { className: "second-child" },
-    createElement("TEXT_ELEMENT", null, "두번째 자식")
-  );
+const anotherVirtualDOM = {
+  type: "div",
+  props: {
+    id: "id2",
+    className: "xyz abc",
+    children: {
+      type: "p",
+      props: {
+        className: "child",
+        children: {
+          type: "TEXT_ELEMENT",
+          props: {
+            children: "변경된 virtualDOM",
+          },
+        },
+      },
+    },
+  },
 };
 
-const parentComponent = () => {
-  return createElement(
-    "div",
-    { className: "parent", style: "border: 1px solid black" },
-    firstChildComponent,
-    secondChildComponent
-  );
-};
-
-ReactDOM.render(
-  createElement(parentComponent, null),
-  document.getElementById("root")
-);
+ReactDOM.render(virtualDOM, document.getElementById("root"));
