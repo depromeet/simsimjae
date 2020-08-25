@@ -8,4 +8,4 @@ const App = (
 	</div>
 );
 
-simsimReactDom.render(<App />, document.getElementById('root'));
+simsimReactDom.render(App, document.getElementById('root'));

@@ -1,10 +1,11 @@
-import snabbdom from 'snabbdom';
-import propsModule from 'snabbdom/modules/props';
+import { init } from 'snabbdom/build/package/init';
+import { propsModule } from 'snabbdom/build/package/modules/props';
 
-const reconcile = snabbdom.init([propsModule]);
+const reconcile = init([propsModule]);
 
 const simsimReactDom = {
 	render: (virtualDom, realDom) => {
+		console.log(virtualDom);
 		reconcile(realDom, virtualDom);
 	},
 };
