@@ -1,28 +1,32 @@
 {
-  "dependencies": {
-    "cross-env": "^7.0.2",
-    "http-server": "^0.12.3",
-    "parcel-bundler": "^1.12.4",
-    "react": "^16.13.1"
-  },
-  "scripts": {
-    "clear": "rm -rf ./dist",
-    "build": "parcel ./index.html",
-    "start": "yarn clear && yarn build && http-server ./dist"
-  },
-  "name": "depromeet",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/depromeet/simsimjae.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/depromeet/simsimjae/issues"
-  },
-  "homepage": "https://github.com/depromeet/simsimjae#readme",
-  "description": ""
+	"dependencies": {
+		"cross-env": "^7.0.2",
+		"http-server": "^0.12.3",
+		"parcel-bundler": "^1.12.4",
+		"react": "^16.13.1",
+		"snabbdom": "^1.0.1"
+	},
+	"scripts": {
+		"clear": "rm -rf ./dist",
+		"build": "parcel index.html",
+		"start": "yarn clear && yarn build && http-server ./dist"
+	},
+	"name": "depromeet",
+	"version": "1.0.0",
+	"main": "index.js",
+	"devDependencies": {
+		"@babel/core": "^7.11.4",
+		"@babel/plugin-transform-react-jsx": "^7.10.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/depromeet/simsimjae.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/depromeet/simsimjae/issues"
+	},
+	"homepage": "https://github.com/depromeet/simsimjae#readme",
+	"description": ""
 }
