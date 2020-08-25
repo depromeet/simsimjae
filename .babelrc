@@ -1,0 +1,11 @@
+{
+	"plugins": [
+		[
+			"@babel/plugin-transform-react-jsx",
+			{
+				"pragma": "simsimReact.createElement", // 기본값은 React.createElement
+				"throwIfNamespace": false
+			}
+		]
+	]
+}

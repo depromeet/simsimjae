@@ -1,47 +1,8 @@
-import { createElement } from "./ReactElement.js";
-import ReactDOM from "./ReactDOM.js";
+import simsimReact from './simsimReact';
 
-const virtualDOM = {
-  type: "div",
-  props: {
-    id: "id1",
-    className: "abc",
-    children: {
-      type: "div",
-      props: {
-        className: "child",
-        onClick: () => {
-          ReactDOM.render(anotherVirtualDOM, document.getElementById("root"));
-        },
-        children: {
-          type: "TEXT_ELEMENT",
-          props: {
-            children: "첫번째 virtualDOM, 이 텍스트를 클릭시 state가 변경되어 리렌더링이 일어난다고 가정합니다.",
-          },
-        },
-      },
-    },
-  },
-};
-
-const anotherVirtualDOM = {
-  type: "div",
-  props: {
-    id: "id2",
-    className: "xyz abc",
-    children: {
-      type: "p",
-      props: {
-        className: "child",
-        children: {
-          type: "TEXT_ELEMENT",
-          props: {
-            children: "변경된 virtualDOM",
-          },
-        },
-      },
-    },
-  },
-};
-
-ReactDOM.render(virtualDOM, document.getElementById("root"));
+const App = (
+	<div>
+		<h1 className='primary'>simsimreact</h1>
+		<p>100줄 이하의 자바스크립트로 리액트 코어를 클론해봅시다.</p>
+	</div>
+);
