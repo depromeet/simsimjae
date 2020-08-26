@@ -1,7 +1,8 @@
 import { init } from "snabbdom/build/package/init";
 import { propsModule } from "snabbdom/build/package/modules/props";
+import { eventListenersModule } from "snabbdom/build/package/modules/eventlisteners";
 
-const reconcile = init([propsModule]);
+const reconcile = init([propsModule, eventListenersModule]);
 
 const simsimReactDom = {
 	render: (virtualDom, realDom) => {
