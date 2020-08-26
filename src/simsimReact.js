@@ -24,6 +24,12 @@ const simsimReact = {
 		if (type.prototype && type.prototype.isSimsimReactClassComponent) {
 			const componentInstance = new type(props);
 			componentInstance.__vNode = componentInstance.render();
+
+			componentInstance.__vNode.data.hook = {
+				create: () => {
+					componentInstance.componentDidMount();
+				},
+			};
 			return componentInstance.__vNode;
 		}
 
