@@ -1,6 +1,6 @@
 # 리액트 코어 클론 코딩 스터디
 
-## 1주차. React Element Clone
+## 1주차 React Element Clone
 
 ### 사전지식
 
